@@ -1,0 +1,27 @@
+image: tiw1-ci:2017-1
+
+stages:
+  - build
+  - test
+  - analyse
+
+dire_bonjour:
+  variables:
+    CI_DEBUG_TRACE: "true"
+  stage: build
+  script:
+    - echo bonjour
+
+compile:
+  stage: build
+  script: "mvn clean install -DskipTests"
+
+unittests:
+  stage: test
+  script: "mvn test"
+
+analyse:
+  variables:
+    SONAR_PROJ_KEY: "$CI_PROJECT_NAMESPACE-$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG"
+  stage: analyse
+  script: "mvn -Dsonar.projectKey=$SONAR_PROJ_KEY install sonar:sonar"

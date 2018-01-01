@@ -1,0 +1,166 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  height:100%;
+}
+h3 {
+  margin: 0 !important;
+  padding: 40px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder !important;
+  box-shadow: 1px 1px 10px #000;
+  background: #eee;
+  color: #2196F3 !important;
+}
+.table_all {
+  border: 1px solid #000;
+}
+h3:after {
+  display: block;
+  content: "";
+  width: 160px;
+  border-bottom: 7px solid #ffd600;
+  margin: 0 auto;
+  padding:10px 0;
+}
+.content {
+  width: calc(100% - 330px);
+  float:right;
+  padding-right: 20px;
+}
+.erreur {
+  color:#f44336;
+  padding-bottom:10px ;
+}
+/* label color */
+.input-field label {
+  color: #000 !important;
+}
+/* label focus color */
+.modal_form .input-field input[type=text]:focus + label {
+  color: #000 !important;
+}
+/* label underline focus color */
+.modal_form .input-field input[type=text]:focus {
+  border-bottom: 1px solid #000 !important;
+  box-shadow: 0 1px 0 0 #000 !important;
+}
+/* valid color */
+.modal_form .input-field input[type=text].valid {
+  border-bottom: 1px solid #000 !important;
+  box-shadow: 0 1px 0 0 #000 !important;
+}
+/* invalid color */
+.modal_form .input-field input[type=text].invalid {
+  border-bottom: 1px solid #000 !important;
+  box-shadow: 0 1px 0 0 #000 !important;
+}
+/* icon prefix focus color */
+.modal_form .input-field .prefix.active {
+  color: #000 !important;
+}
+#toast-container {
+  position: absolute;
+  right: 0 !important;
+}
+.edit {
+  display: block !important;
+  text-align: center;
+  border: 0;
+  width: 30px;
+  margin: 0 auto;
+}
+.table_all td {
+  font-size: 14px;
+  border-right: 1px solid #000;
+  text-align: center;
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
+  border:2px solid #000 !important;
+}
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
+  background-color:#000 !important;
+}
+
+.modal_form .input-field input[type=text].invalid {
+  border-bottom: 1px solid #f44336 !important;
+}
+
+.tags {
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.tags input[type="radio"] {
+  float: left;
+}
+
+.tag {
+  background: #ffd600;
+  border-radius: 3px 0 0 3px;
+  color: #999;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+}
+
+.tag::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.tag::after {
+  background: #fff;
+  border-bottom: 13px solid transparent;
+  border-left: 10px solid #ffd600;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.btn {
+  margin-top: 20px;
+  margin-bottom: 20px
+}
+td .btn {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+td {
+  padding: 0 5px;
+}
+.tag:hover {
+  background-color: #2196F3;
+  color: white;
+}
+h5 {
+  font-size: 14px;
+}
+.tag:hover::after {
+  border-left-color: #2196F3;
+}
+.modal_form {
+  background: #fff;
+}
+.ref {
+  font-size: 16px;
+}
+.modal .modal-content {
+  padding: 0 !important;
+}

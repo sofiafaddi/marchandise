@@ -1,0 +1,49 @@
+<div class="content">
+  <h3>{{title}}</h3>
+
+  <br/>
+  <div class="right">
+    <a [ngClass]="'btn-floating btn-large waves-effect waves-light black-text yellow  btn modal-trigger pulse'" href="#modal1"><i mz-icon-mdi [icon]="'plus'" ></i></a>
+  </div>
+  <br/>
+
+  <br/>
+
+  <!-- Modal Structure -->
+  <div id="modal1" [ngClass] = "'modal'">
+    <div [ngClass] = "'modal-content'">
+      <app-forms-entrepot></app-forms-entrepot>
+    </div>
+  </div>
+  <div id="modal2" [ngClass] = "'modal'">
+    <div [ngClass] = "'modal-content'">
+      <app-forms-entrepot></app-forms-entrepot>
+    </div>
+  </div>
+
+  <table [ngClass]="'table_all striped'">
+    <thead>
+    <tr [ngClass]="'blue white-text'">
+      <th [ngClass]="'white-text'">Nom</th>
+      <th [ngClass]="'white-text'">Occupation</th>
+      <th [ngClass]="'white-text'">capacite</th>
+      <th [ngClass]="'white-text'">Modifier</th>
+      <th [ngClass]="'white-text'">Supprimer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let entrepot of entrepotList">
+      <td>{{ entrepot.nom}}</td>
+      <td>{{ entrepot.occupation}}</td>
+      <td>{{ entrepot.capacite}}</td>
+      <td class="center-align"><a class ="edit rounded btn-floating waves-effect waves-light black btn modal-trigger" href="#modal2"  (click)="SelectedID(entrepot.nom)"> <i mz-icon-mdi class="darken-1-text yellow-text" [icon]="'pencil'" ></i></a></td>
+      <td class="center-align"><a class ="edit rounded btn-floating waves-effect waves-light black  darken-1-text yellow-text"   (click)="setSelected(entrepot.nom)"><i mz-icon-mdi  class="darken-1-text yellow-text" [icon]="'delete'" ></i></a></td>
+    </tr>
+    </tbody>
+  </table>
+  <div *ngIf="!entrepotList?.length > 0">
+    Aucun entrepot n'est didponible pour le moment , Cliquer sur le bouton pour ajouter
+  </div>
+</div>
+
+

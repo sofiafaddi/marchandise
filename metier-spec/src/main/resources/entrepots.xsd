@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://master-info.univ-lyon1.fr/TIW/TIW1/2017/entrepots"
+        xmlns:tns="http://master-info.univ-lyon1.fr/TIW/TIW1/2017/entrepots"
+        elementFormDefault="qualified">
+    <element name="entrepots">
+        <complexType>
+            <sequence>
+                <element name="entrepot" type="tns:entrepotT"
+                         minOccurs="0" maxOccurs="unbounded"/>
+                <element name="marchandise" type="tns:marchandiseT"
+                         minOccurs="0" maxOccurs="unbounded"/>
+                <element name="livraison" type="tns:livraisonT"
+                         minOccurs="0" maxOccurs="unbounded"/>
+                <element name="approvisionnement" type="tns:approvisionnementT"
+                         minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="entrepotT">
+        <sequence>
+            <element name="nom" type="string"/>
+            <element name="capacite" type="double"/>
+            <element name="marchandise" type="tns:stockT"
+                     maxOccurs="unbounded" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="stockT">
+        <simpleContent>
+            <extension base="int">
+                <attribute name="ref" type="IDREF"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="marchandiseT">
+        <sequence>
+            <element name="nom" type="string"/>
+            <element name="volumeUnitaire" type="double"/>
+            <element name="description" type="string"/>
+        </sequence>
+        <attribute name="ref" type="ID" use="required"/>
+    </complexType>
+
+    <complexType name="operationT">
+        <sequence>
+            <element name="ref" type="int"/>
+            <element name="entrepot" type="string"/>
+            <element name="quantite" type="int"/>
+            <element name="dateCreation" type="dateTime"/>
+            <element name="datePrevue" type="dateTime"/>
+            <element name="dateEffective" type="dateTime" minOccurs="0"/>
+        </sequence>
+        <attribute name="id" type="ID"/>
+    </complexType>
+
+    <complexType name="livraisonT">
+        <complexContent>
+            <extension base="tns:operationT">
+                <sequence>
+                    <element name="magasin" type="string"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="approvisionnementT">
+        <complexContent>
+            <extension base="tns:operationT">
+                <sequence>
+                    <element name="fournisseur" type="string"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+
+</schema>

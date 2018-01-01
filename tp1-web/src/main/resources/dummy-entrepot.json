@@ -1,0 +1,20 @@
+{
+  "nom": "dummy",
+  "capacite": 5,
+  "marchandises": [
+    {
+      "ref": 3,
+      "nom": "dummy good 3",
+      "volumeUnitaire": 5.0,
+      "description": "a dummy good",
+      "stock": 8
+    },
+    {
+      "ref": 5,
+      "nom": "dummy good 5",
+      "volumeUnitaire": 8.0,
+      "description": "a dummy good",
+      "stock": 12
+    }
+  ]
+}

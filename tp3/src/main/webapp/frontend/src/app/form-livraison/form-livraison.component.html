@@ -1,0 +1,38 @@
+
+
+<h4 [ngClass]="'modal_title'">{{title}}</h4>
+<form novalidate
+      [formGroup]="myformlivraison"
+      [ngClass]="'modal_form'"
+      (ngSubmit)="onSubmit()">
+
+  <div [ngClass]="'input-field'">
+    <input
+           id="dateEffectuee"
+           type="date" class="validate"
+           placeholder="date Effectuee"
+           formControlName="dateEffectuee"
+           required>
+    <label for="dateEffectuee" class="active">date Effectuee</label>
+  </div>
+  <div  *ngIf="LivraisonList?.length > 0"><h5>Liste des numéros livraisons</h5>
+    <p  class="tag" *ngFor="let livraison of LivraisonList" >
+      <input [value] = "livraison.id"
+             class="with-gap black"
+             name="id"
+             formControlName="id"
+             type="radio"
+             id="{{livraison.id}}"  required/>
+      <label  class="black-text" for="{{livraison.id}}"> {{livraison.id}}</label>
+    </p>
+
+  </div>
+
+
+
+  <button type="submit" [ngClass]="'btn btn-success black yellow-text right-align'">Ajouter</button>
+
+
+
+</form>
+

@@ -1,0 +1,60 @@
+<div class="content">
+  <h3>{{title}}</h3>
+
+  <br/>
+  <div class="right">
+    <a [ngClass]="'btn-floating btn-large waves-effect waves-light black-text yellow  btn modal-trigger pulse'" href="#modal1"><i mz-icon-mdi [icon]="'plus'" ></i></a>
+  </div>
+  <div class="right">
+    <a [ngClass]="'btn-floating btn-large waves-effect waves-light black-text yellow  btn modal-trigger pulse'" href="#modal2"><i mz-icon-mdi [icon]="'map-marker-outline'" ></i></a>
+  </div>
+  <div id="modal1" [ngClass] = "'modal'">
+    <div [ngClass] = "'modal-content'">
+      <app-form-approvisionnement [marchandiseListShow]="marchandiseList" [EntrepotListShow]="EntrepotList"></app-form-approvisionnement>
+    </div>
+      <br/>
+  </div>
+
+
+
+  <div id="modal2" [ngClass] = "'modal'">
+    <div [ngClass] = "'modal-content'">
+      <app-form-receptionner [ApprovisionnementList]="ApprovisionnementItem"></app-form-receptionner>
+    </div>
+    <br/>
+  </div>
+
+  <table [ngClass]="'table_all striped'">
+    <thead [ngClass]="'blue white-text'">
+    <tr>
+      <th [ngClass]="'white-text'">id</th>
+      <th [ngClass]="'white-text'">fournisseur</th>
+      <th [ngClass]="'white-text'">ref Marchandise</th>
+      <th [ngClass]="'white-text'">nom Entrepot</th>
+      <th [ngClass]="'white-text'">date Prevu</th>
+      <th [ngClass]="'white-text'">date Effectue</th>
+      <th [ngClass]="'white-text'">date Création</th>
+      <th [ngClass]="'white-text'">quantite Effective</th>
+      <th [ngClass]="'white-text center-align '">Modifier</th>
+      <th [ngClass]="'white-text center-align'">Supprimer</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let approv of ApprovisionnementList">
+      <td><b>{{ approv.id}}</b></td>
+      <td>{{ approv.fournisseur}}</td>
+      <td [ngClass]="'center-align'">{{ approv.refMarchandise}}</td>
+      <td>{{ approv.nomEntrepot}}</td>
+      <td>{{ approv.datePrevu}}</td>
+      <td>{{ approv.dateEffectue}}</td>
+      <td>{{ approv.dateCreation}}</td>
+      <td >{{ approv.quantiteEffective}}</td>
+      <td class="center-align">
+        <a class ="edit rounded btn-floating waves-effect waves-light black btn modal-trigger" href="#modal2"  (click)="SelectedID(approv.id)"> <i mz-icon-mdi class="darken-1-text yellow-text" [icon]="'map-marker-outline'" ></i></a></td>
+      <td class="center-align">
+        <a class ="edit rounded btn-floating waves-effect waves-light black  darken-1-text yellow-text"   (click)="setSelected(approv.id)"><i mz-icon-mdi  class="darken-1-text yellow-text" [icon]="'delete'" ></i></a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

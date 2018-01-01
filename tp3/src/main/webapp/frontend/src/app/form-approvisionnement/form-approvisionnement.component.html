@@ -1,0 +1,100 @@
+
+
+<h4 [ngClass]="'modal_title'">{{title}}</h4>
+<p *ngIf ="erreur"> {{erreur}} Une erreur est survenue ! Réessayer </p>
+<p *ngIf ="non_erreur"> La marchandise a été ajouté avec success </p>
+<form novalidate
+      [formGroup]="myformapprovisionnement"
+      [ngClass]="'modal_form'"
+      (ngSubmit)="onSubmit()">
+
+  <div [ngClass]="'input-field'">
+    <input value="Alvin"
+           id="fournisseur"
+           type="text" class="validate"
+           placeholder="Nom du fournisseur"
+           formControlName="fournisseur"
+           required>
+    <label for="fournisseur" class="active">fournisseur</label>
+
+
+    <div class="erreur"
+         *ngIf="!myformapprovisionnement.controls['fournisseur'].valid
+           && myformapprovisionnement.controls['fournisseur'].touched">Ce champs est obligatoire.
+    </div>
+  </div>
+
+  <div [ngClass]="'input-field'">
+    <input type="date"
+           [ngClass]="'form-control validate'"
+           id="prevu"
+           formControlName="prevu"
+           placeholder="Date prévu"
+           required>
+    <label for="prevu" class="active">Prévu </label>
+    <div class="erreur"
+         *ngIf="!myformapprovisionnement.controls['prevu'].valid
+           && myformapprovisionnement.controls['prevu'].touched">Ce champs est obligatoire.
+    </div>
+  </div>
+
+
+
+  <div [ngClass]="'input-field'">
+    <input type="text"
+           [ngClass]="'form-control validate'"
+           id="magasin"
+           placeholder="Nom du magasin"
+           formControlName="magasin"
+           required>
+    <label for="magasin" class="active">magasin </label>
+    <div class="erreur"
+         *ngIf="!myformapprovisionnement.controls['magasin'].valid
+           && myformapprovisionnement.controls['magasin'].touched">Ce champs est obligatoire.
+    </div>
+  </div>
+  <div [ngClass]="'input-field'">
+    <input type="text"
+           [ngClass]="'form-control validate'"
+           id="quantite"
+           placeholder="quantité"
+           formControlName="quantite"
+           required>
+    <label for="quantite" class="active">quantite </label>
+    <div class="erreur"
+         *ngIf="!myformapprovisionnement.controls['quantite'].valid
+           && myformapprovisionnement.controls['quantite'].touched">Ce champs est obligatoire.
+    </div>
+  </div>
+    <div *ngIf="marchandiseList?.length > 0"><h5>Liste des marchandises</h5>
+      <p class="tag" *ngFor="let marchandise of marchandiseList" >
+      <input class="with-gap black"
+             name="allMarchandises"
+             [value] = "marchandise.reference "
+             formControlName="allMarchandises"
+             type="radio"
+             id="{{marchandise.reference}}" required/>
+      <label  class="black-text" for="{{marchandise.reference}}">{{marchandise.nom}}</label>
+    </p>
+    </div>
+  <div  *ngIf="EntrepotList?.length > 0"><h5>Liste des entrepots</h5>
+    <p  class="tag" *ngFor="let entrepot of EntrepotList" >
+      <input [value] = "entrepot.nom"
+             class="with-gap black"
+             name="allEntrepots"
+             formControlName="allEntrepots"
+             type="radio"
+             id="{{entrepot.nom}}"  required/>
+      <label  class="black-text" for="{{entrepot.nom}}"> <span class="w3-tag">{{entrepot.nom}}</span>{{entrepot.nom}}</label>
+    </p>
+
+  </div>
+
+
+
+  <button type="submit" [ngClass]="'btn btn-success black yellow-text right-align'">Ajouter</button>
+
+
+
+</form>
+

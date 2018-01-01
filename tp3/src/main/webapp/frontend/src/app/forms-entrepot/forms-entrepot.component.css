@@ -1,0 +1,12 @@
+.modal_title {
+  background: #ffd600;
+  padding: 20px;
+  text-align: center;
+  color: #000;
+  border: 3px solid #fff;
+  text-transform: uppercase;
+  font-size: 25px;
+}
+.modal_form {
+  padding:20px 60Px;
+}

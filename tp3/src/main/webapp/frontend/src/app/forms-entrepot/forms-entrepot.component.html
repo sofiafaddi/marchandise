@@ -1,0 +1,41 @@
+
+  <h4 [ngClass]="'modal_title'">{{title}}</h4>
+  <form novalidate
+               [formGroup]="myform"
+        [ngClass]="'modal_form'"
+        (ngSubmit)="onSubmit()">
+    <p *ngIf="myform.get('nom').hasError('required')
+    && myform.submitted">Name is required</p>
+    <div [ngClass]="'input-field'">
+      <label for="nom">Nom</label>
+      <input type="text"
+             [ngClass]="'form-control'"
+             id="nom"
+             [ngClass]="'validate'"
+             formControlName="nom"
+             required>
+      <div class="erreur"
+           *ngIf="!myform.controls['nom'].valid
+           && myform.controls['nom'].touched">Ce champs est obligatoire.
+      </div>
+
+    </div>
+
+    <div [ngClass]="'input-field'">
+      <label for="capacite">Capacité </label>
+      <input type="text"
+             [ngClass]="'form-control'"
+             id="capacite"
+             [ngClass]="'validate'"
+             formControlName="capacite"
+             required>
+      <div class="erreur"
+           *ngIf="!myform.controls['capacite'].valid
+           && myform.controls['capacite'].touched">Ce champs est obligatoire.
+      </div>
+    </div>
+
+    <button type="submit" [ngClass]="'btn btn-success black yellow-text right-align'">{{title}}</button>
+
+  </form>
+

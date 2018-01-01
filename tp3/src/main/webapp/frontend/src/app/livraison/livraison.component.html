@@ -1,0 +1,53 @@
+<div class="content">
+  <h3>{{title}}</h3>
+
+  <br/>
+  <div class="right">
+    <a [ngClass]="'btn-floating btn-large waves-effect waves-light black-text yellow  btn modal-trigger pulse'" href="#modal1"><i mz-icon-mdi [icon]="'plus'" ></i></a>
+  </div>
+  <br/>
+
+  <!-- Modal Structure -->
+  <div id="modal1" [ngClass] = "'modal'">
+    <div [ngClass] = "'modal-content'" >
+     <app-form-livraison [LivraisonListShow]="LivraisonList"></app-form-livraison>-->
+    </div>
+  </div>
+
+  <br/>
+  <br/>
+  <table [ngClass]="'table_all striped'">
+    <thead [ngClass]="'blue white-text'">
+    <tr>
+      <th [ngClass]="'white-text'">ID</th>
+      <th [ngClass]="'white-text'">datePrevue</th>
+      <th [ngClass]="'white-text'">magasin</th>
+      <th [ngClass]="'white-text'">dateEffectuee</th>
+      <th [ngClass]="'white-text'">quantiteEffective</th>
+      <th [ngClass]="'white-text'">refMarchandise</th>
+      <th [ngClass]="'white-text'">nomEntrepot</th>
+      <th [ngClass]="'white-text'">dateCreation</th>
+      <th [ngClass]="'white-text center-align '">Modifier</th>
+      <th [ngClass]="'white-text center-align'">Supprimer</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let liv of LivraisonList">
+      <td><b>{{liv.id}}</b></td>
+      <td>{{liv.datePrevue}}</td>
+      <td>{{ liv.magasin}}</td>
+      <td>{{ liv.dateEffectuee}}</td>
+      <td [ngClass]="'center-align'">{{ liv.quantiteEffective}}</td>
+      <td>{{ liv.refMarchandise}}</td>
+      <td>{{ liv.nomEntrepot}}</td>
+      <td>{{ liv.dateCreation}}</td>
+      <td class="center-align"><a class ="edit rounded btn-floating waves-effect waves-light black btn modal-trigger" href="#modal2"  (click)="SelectedID(marachandise.ref)"> <i mz-icon-mdi class="darken-1-text yellow-text" [icon]="'pencil'" ></i></a></td>
+      <td class="center-align"><a class ="edit rounded btn-floating waves-effect waves-light black  darken-1-text yellow-text"   (click)="setSelected(marachandise.ref)"><i mz-icon-mdi  class="darken-1-text yellow-text" [icon]="'delete'" ></i></a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+

@@ -1,0 +1,24 @@
+
+
+<h4 [ngClass]="'modal_title'">{{title}}</h4>
+<form novalidate
+      [formGroup]="myformreceptionner"
+      [ngClass]="'modal_form'"
+      (ngSubmit)="onSubmit()">
+
+  <div [ngClass]="'input-field'">
+    <input
+      id="dateEffectuee"
+      type="date" class="validate"
+      placeholder="date Effectuee"
+      formControlName="dateEffectue"
+      required>
+    <label for="dateEffectuee" class="active">date Effectuee</label>
+  </div>
+
+  <button type="submit" [ngClass]="'btn btn-success black yellow-text right-align'">Receptionner</button>
+
+
+
+</form>
+

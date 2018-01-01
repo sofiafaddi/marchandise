@@ -1,0 +1,118 @@
+{
+  "description": "entrepots data",
+  "type": "object",
+  "properties": {
+    "entrepots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nom": {
+            "type": "string"
+          },
+          "capacite": {
+            "type": "number"
+          },
+          "stock": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ref": {
+                  "type": "number"
+                },
+                "quantite": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "marchandises": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nom": {
+            "type": "string"
+          },
+          "volumeUnitaire": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          },
+          "ref": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "livraisons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "marchandise": {
+            "type": "number"
+          },
+          "entrepot": {
+            "type": "string"
+          },
+          "quantite": {
+            "type": "number"
+          },
+          "dateCreation": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "datePrevue": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "dateEffective": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "magasin": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "approvisionnements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "marchandise": {
+            "type": "number"
+          },
+          "entrepot": {
+            "type": "string"
+          },
+          "quantite": {
+            "type": "number"
+          },
+          "dateCreation": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "datePrevue": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "dateEffective": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "fournisseur": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

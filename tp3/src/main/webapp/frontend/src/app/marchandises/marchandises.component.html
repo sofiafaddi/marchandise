@@ -1,0 +1,55 @@
+<div class="content">
+  <h3>{{title}}</h3>
+
+  <br/>
+  <div class="right">
+    <a [ngClass]="'btn-floating btn-large waves-effect waves-light black-text yellow
+     btn modal-trigger pulse'" href="#modal1"><i mz-icon-mdi [icon]="'plus'" ></i></a>
+  </div>
+  <br/>
+
+  <!-- Modal Structure -->
+  <div id="modal1" [ngClass] = "'modal'">
+    <div [ngClass] = "'modal-content'" >
+      <app-form-marchandise title="Ajouter" ></app-form-marchandise>
+    </div>
+  </div>
+  <div id="modal2" [ngClass] = "'modal'">
+    <div  *ngIf="formModificationParent" [ngClass] = "'modal-content one'">
+      <app-form-marchandise  title="Modifier"  [formModificationChild]="formModificationParent"></app-form-marchandise>
+
+    </div>
+  </div>
+
+  <br/>
+  <br/>
+  <table  *ngIf="marchandiseList?.length > 0" [ngClass]="'table_all striped'">
+    <thead [ngClass]="'blue white-text'">
+    <tr>
+      <th [ngClass]="'white-text'">Ref</th>
+      <th [ngClass]="'white-text'">Nom</th>
+      <th [ngClass]="'white-text'">Description</th>
+      <th [ngClass]="'white-text'">Volume Unitaire</th>
+      <th [ngClass]="'white-text center-align '">Modifier</th>
+      <th [ngClass]="'white-text center-align'">Supprimer</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let marachandise of marchandiseList">
+      <td class="ref"><b>{{ marachandise.reference}}</b></td>
+      <td>{{ marachandise.nom}}</td>
+      <td>{{ marachandise.description}}</td>
+      <td>{{ marachandise.volumeUnitaire}}</td>
+      <td class="center-align"><a class ="edit rounded btn-floating waves-effect waves-light black btn modal-trigger" href="#modal2"  (click)="SelectedID(marachandise.reference)"> <i mz-icon-mdi class="darken-1-text yellow-text" [icon]="'pencil'" ></i></a></td>
+      <td class="center-align"><a class ="edit rounded btn-floating waves-effect waves-light black  darken-1-text yellow-text"   (click)="setSelected(marachandise.reference)"><i mz-icon-mdi  class="darken-1-text yellow-text" [icon]="'delete'" ></i></a></td>
+    </tr>
+    </tbody>
+  </table>
+  <div *ngIf="!marchandiseList?.length > 0">
+    Aucune marchandise n'est didponible pour le moment , Cliquer sur le bouton pour ajouter
+  </div>
+</div>
+
+
+

@@ -1,0 +1,15 @@
+<ul id="slide-out" class="side-nav">
+  <li [ngClass]="'header_menu'"> Menu</li>
+  <li><a routerLink="/marchandises" routerLinkActive="active" [ngClass]="'blue-text darken-1-text'">Marchandise</a></li>
+  <li><a routerLink="/entrepot" [ngClass]="'blue-text darken-1-text'">Entrepôt</a></li>
+  <li><a routerLink="/approvisionnement"[ngClass]="'blue-text darken-1-text'" >Approvisionnement</a></li>
+  <li><a routerLink="/livraison" [ngClass]="'blue-text darken-1-text'">Livraison</a></li>
+  <li>
+    <div class="user-view">
+      <img [src]="menuImage" [ngClass]="'menu_image'" alt="menu">
+    </div>
+  </li>
+</ul>
+
+
+

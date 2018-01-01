@@ -1,0 +1,55 @@
+
+
+<h4 [ngClass]="'modal_title'">{{title}} la marchandise</h4>
+<p *ngIf ="erreur"> {{erreur}} Une erreur est survenue ! Réessayer </p>
+<p *ngIf ="non_erreur"> La marchandise a été ajouté avec success </p>
+<form novalidate
+      [formGroup]="myform"
+      [ngClass]="'modal_form'"
+      (ngSubmit)="onSubmit()">
+
+  <div [ngClass]="'input-field'">
+   <input placeholder="Nom" id="nom" type="text" class="validate" ngModel="{{formModificationChild?.nom}}"  formControlName="nom" required>
+    <label for="nom" class="active">nom</label>
+
+
+    <div class="erreur"
+         *ngIf="!myform.controls['nom'].valid
+           && myform.controls['nom'].touched">Ce champs est obligatoire.
+    </div>
+  </div>
+
+  <div [ngClass]="'input-field'">
+    <input type="text"
+
+           [ngClass]="'form-control validate'"
+           id="description"
+           formControlName="description"
+           placeholder="Description"
+           ngModel="{{formModificationChild?.description}}"
+           required>
+    <label for="description" class="active">Description </label>
+    <div class="erreur"
+         *ngIf="!myform.controls['description'].valid
+           && myform.controls['description'].touched">Ce champs est obligatoire.
+    </div>
+  </div>
+  <div [ngClass]="'input-field'">
+    <input type="number"
+           placeholder="Volume Unitaire"
+           [ngClass]="'form-control validate'"
+           id="volumeUnitaire"
+           formControlName="volumeUnitaire"
+           ngModel="{{formModificationChild?.volumeUnitaire}}"
+           required>
+    <label for="volumeUnitaire" class="active">volumeUnitaire </label>
+    <div class="erreur"
+         *ngIf="!myform.controls['volumeUnitaire'].valid
+           && myform.controls['volumeUnitaire'].touched">Ce champs est obligatoire.
+    </div>
+  </div>
+
+  <button type="submit" [ngClass]="'btn btn-success black yellow-text right-align'">{{title}}</button>
+
+</form>
+
